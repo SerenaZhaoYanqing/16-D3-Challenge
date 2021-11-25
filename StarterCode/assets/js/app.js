@@ -27,6 +27,7 @@ var svg = d3
 var chartGroup = svg.append("g")
 .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+
 // import data 
 d3.csv("./assets/data/data.csv").then(function(alldata){
   console.log()
@@ -38,7 +39,7 @@ d3.csv("./assets/data/data.csv").then(function(alldata){
 
 //create scale function 
 var xLinearScale = d3.scaleLinear()
-.domain([0, d3.max(alldata, d => d.poverty)])
+.domain([8, d3.max(alldata, d => d.poverty)])
 .range([0, width]);
 
 var yLinearScale = d3.scaleLinear()
@@ -65,7 +66,7 @@ var circlesGroup = chartGroup.selectAll("circle")
 .attr("cx", d => xLinearScale(d.poverty))
 .attr("cy", d => yLinearScale(d.healthcare))
 .attr("r", "15")
-.attr("fill", "blue")
+.attr("fill", "pink")
 .attr("opacity", ".5");
 
 chartGroup.append('g').selectAll("text")
